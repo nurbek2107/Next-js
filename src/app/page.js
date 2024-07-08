@@ -1,4 +1,5 @@
-"use client";  // Add this line at the very top
+// pages/index.js
+"use client";
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -31,7 +32,6 @@ const App = () => {
       setProducts(products);
       setFilteredProducts(products);
 
-      // Extract unique categories
       const uniqueCategories = ['All', ...new Set(products.map(product => product.category))];
       setCategories(uniqueCategories);
     };
@@ -143,7 +143,7 @@ const App = () => {
               </CardBody>
               <CardFooter>
                 <div className='flex gap-5 w-full'>
-                  <Link href={`/singleProduct/${product.id}`}>
+                  <Link href={`/singleProduct/${product.id}`} passHref>
                     <Button
                       ripple={false}
                       fullWidth={true}
