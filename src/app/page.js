@@ -12,6 +12,7 @@ import {
   Button,
   Checkbox
 } from "@material-tailwind/react";
+
 const getData = async () => {
   const request = await fetch("https://dummyjson.com/products");
   const data = await request.json();
@@ -104,18 +105,18 @@ const App = () => {
           <Button
             key={index}
             onClick={() => handleFilterChange(category)}
-            className={`select-none rounded-lg bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase  shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ${category === selectedCategory ? 'bg-blue-gray-50 text-blue-gray-900' : 'hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900'}`}
+            className={`select-none rounded-lg bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ${category === selectedCategory ? 'bg-blue-gray-50 text-blue-gray-900' : 'hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900'}`}
           >
             {category}
           </Button>
         ))}
       </div>
 
-      <div className='flex gap-5 mt-10 flex-wrap '>
+      <div className='flex gap-5 mt-10 flex-wrap'>
         {filteredProducts.map((product) => (
-          <div key={product.id} className="w-[350px] ">
-            <Card className='bg-base-100 '>
-              <CardHeader shadow={false} floated={false} className="h-96 ">
+          <div key={product.id} className="w-[350px]">
+            <Card className='bg-base-100'>
+              <CardHeader shadow={false} floated={false} className="h-96">
                 <img
                   src={product.images[0]}
                   alt="card-image"
@@ -131,7 +132,7 @@ const App = () => {
                     ${product.price.toFixed(2)}
                   </Typography>
                 </div>
-                
+
                 <Typography
                   variant="small"
                   color="gray"
@@ -141,16 +142,15 @@ const App = () => {
                 </Typography>
               </CardBody>
               <CardFooter>
-                <div className=' flex gap-5 w-full'>
+                <div className='flex gap-5 w-full'>
                   <Link href={`/singleProduct/${product.id}`} passHref>
                     <Button
                       ripple={false}
                       fullWidth={true}
-                      className="bg-blue-gray-800  text-blue-gray-200 w-60 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100 text-white"
+                      className="bg-blue-gray-800 text-blue-gray-200 w-60 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100 text-white"
                     >
                       Add to Cart
                     </Button>
-
                   </Link>
                   <Checkbox
                     icon={
