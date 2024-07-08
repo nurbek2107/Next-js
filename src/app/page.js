@@ -143,7 +143,7 @@ const App = () => {
               </CardBody>
               <CardFooter>
                 <div className='flex gap-5 w-full'>
-                  <Link href={`/singleProduct/${product.id}`} passHref>
+                  <Link href={`/singleProduct/${product.id}`}>
                     <Button
                       ripple={false}
                       fullWidth={true}
